@@ -1,1 +1,5 @@
 export const sukuChromeStoreUrl = 'https://chrome.google.com/webstore/detail/suku-wallet/fopmedgnkfpebgllppeddmmochcookhc'
+export const uriEvent = 'display_uri'
+export const sukuWalletInstalledEvent = 'installed'
+export const sukuWalletInstalledMessage = 'sukuWalletInstalled'
+export const createSessionMessage = 'createWalletConnectConnection'

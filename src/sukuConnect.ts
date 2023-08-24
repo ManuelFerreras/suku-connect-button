@@ -1,17 +1,17 @@
 import Provider from "@walletconnect/ethereum-provider";
-import { sukuChromeStoreUrl } from "./constants";
+import { createSessionMessage, sukuChromeStoreUrl, sukuWalletInstalledEvent, sukuWalletInstalledMessage, uriEvent } from "./constants";
 
 export const checkIfSukuWalletIsInstalled = async () => {
   return new Promise<boolean>((resolve) => {
     window.addEventListener('message', (event) => {
-      if (event?.data === 'installed') {
+      if (event?.data === sukuWalletInstalledEvent) {
         // If we get a message from the extension, then it is installed.
         resolve(true);
       }
     })
 
     // Check if Suku Wallet is installed.
-    window.postMessage('sukuWalletInstalled', "*");
+    window.postMessage(sukuWalletInstalledMessage, "*");
 
     // If we don't get a message from the extension, then it is not installed.
     setTimeout(() => {
@@ -27,15 +27,14 @@ export const connectWithSukuWallet = async (provider: Provider) => {
   // Check if Suku Wallet is Installed. If not, redirect to the Chrome Web Store.
   if (!installed) {
     window.open(sukuChromeStoreUrl, '_blank')
-    return
+    return false
   }
 
-  provider.on('display_uri', (uri: string) => {
+  provider.on(uriEvent, (uri: string) => {
     // When the URI is requested, we forward it to the extension.
-    window.postMessage({ type: 'createWalletConnectConnection', uri }, "*");
+    window.postMessage({ type: createSessionMessage, uri }, "*");
   })
 
   await provider.connect()
-
-  return provider
+  return true
 }
