@@ -1,8 +1,10 @@
 {
   "name": "suku-connect-button",
-  "version": "1.0.2",
+  "version": "1.0.5",
   "description": "A simple library to integrate the suku connect button in any DApp.",
   "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],

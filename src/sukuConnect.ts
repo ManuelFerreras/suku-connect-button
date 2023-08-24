@@ -1,6 +1,5 @@
 import Provider from "@walletconnect/ethereum-provider";
 import { sukuChromeStoreUrl } from "./constants";
-import { EthereumProviderOptions } from "@walletconnect/ethereum-provider/dist/types/EthereumProvider";
 
 export const checkIfSukuWalletIsInstalled = async () => {
   return new Promise<boolean>((resolve) => {
@@ -21,9 +20,7 @@ export const checkIfSukuWalletIsInstalled = async () => {
   })
 }
 
-export const connectWithSukuWallet = async (providerParams: EthereumProviderOptions) => {
-  const provider: Provider = await Provider.init(providerParams)
-
+export const connectWithSukuWallet = async (provider: Provider) => {
   // We First Check if Suku Wallet is Installed.
   const installed = await checkIfSukuWalletIsInstalled();
 
@@ -39,4 +36,6 @@ export const connectWithSukuWallet = async (providerParams: EthereumProviderOpti
   })
 
   await provider.connect()
+
+  return provider
 }
