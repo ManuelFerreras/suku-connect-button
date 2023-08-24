@@ -1,8 +1,8 @@
 {
   "name": "suku-connect-button",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A simple library to integrate the suku connect button in any DApp.",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
   "files": [
     "dist"
   ],
@@ -16,11 +16,14 @@
   "author": "Suku",
   "license": "ISC",
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.4",
+    "@rollup/plugin-node-resolve": "^15.2.1",
     "@types/node": "^20.5.4",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.35.0",
     "tsup": "^7.2.0",
-    "typescript": "^5.1.6",
-    "rollup-plugin-terser": "^7.0.2"
+    "typescript": "^5.1.6"
   },
   "dependencies": {
     "@walletconnect/ethereum-provider": "^2.10.0"
