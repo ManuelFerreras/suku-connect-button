@@ -65,6 +65,25 @@ useEffect(() => {
 
 <br>
 
+In case you want to integrate your own fallback for when the extension is not installed, we offer a redirect method:
+```
+useEffect(() => {
+  const checkInstalled = async () => {
+    const installed = await checkIfSukuWalletIsInstalled()
+    setInstalled(installed)
+
+    // Redirect to the instalation page.
+    if (!installed) {
+      openInstalationPage()
+    }
+  }
+
+  checkInstalled()
+}, [])
+```
+
+<br>
+
 ## Expected Behaviours:
 1) By default, if the Suku Wallet is not installed, but a connection is attempted, the Chrome Store website of the Wallet Extension will be opened so that the user is able to install the CE.
 
