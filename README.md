@@ -74,7 +74,7 @@ useEffect(() => {
 
     // Redirect to the instalation page.
     if (!installed) {
-      openInstalationPage()
+      openInstallationPage()
     }
   }
 
