@@ -26,7 +26,7 @@ export const connectWithSukuWallet = async (provider: Provider) => {
 
   // Check if Suku Wallet is Installed. If not, redirect to the Chrome Web Store.
   if (!installed) {
-    openInstalationPage()
+    openInstallationPage()
     return false
   }
 
@@ -39,6 +39,6 @@ export const connectWithSukuWallet = async (provider: Provider) => {
   return true
 }
 
-export const openInstalationPage = () => {
+export const openInstallationPage = () => {
   window.open(sukuChromeStoreUrl, '_blank')
 }

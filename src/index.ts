@@ -1,1 +1,1 @@
-export { connectWithSukuWallet, checkIfSukuWalletIsInstalled, openInstalationPage } from './sukuConnect';
+export { connectWithSukuWallet, checkIfSukuWalletIsInstalled, openInstallationPage } from './sukuConnect';
